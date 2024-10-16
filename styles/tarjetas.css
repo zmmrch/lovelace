@@ -1,0 +1,115 @@
+:root {
+    --background:  #6e5885;
+}
+
+@font-face {
+    font-family: 'romantica-free';
+    src: url('../fonts/romantica-free.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'myriad-pro';
+    src: url('../fonts/MYRIADPRO-REGULAR.OTF') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+body {
+    background-color: var(--background);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+/* .gallery {
+    display: flex;
+    gap: 2rem;
+} */
+
+.card {
+    position: relative;
+    width: 14rem;
+    border-radius: 8rem;
+    height: 60vh;
+    overflow: hidden;
+    background-color: var(--background);
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    flex: 0.25;
+}
+
+.card img {
+    position: relative;
+    height: 60vh;
+    object-fit: fill; 
+}
+
+.card:hover {
+    flex: 1.1;
+    font-weight: bold;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+h1 {
+    font-family: 'romantica-free';
+    font-size: 10.5rem;
+    color: #fff;
+    text-align: left;
+    position: absolute;
+    top: -0.5%;
+    left: 10%;
+    letter-spacing: 6px;
+}
+
+p {
+    font-family: 'myriad-pro', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: left;
+    position: absolute;
+    top: 85%;
+    left: 9%;
+    right: 72%;
+}
+
+/* polish images center */
+/* .card:nth-child(1) img {
+    left: -15rem;
+}
+
+.card:nth-child(2) img {
+    left: -20rem;
+}
+
+.card:nth-child(3) img {
+    left: -18rem;
+}
+
+.card:nth-child(4) img {
+    left: -58rem;
+}
+
+.card:nth-child(5) img {
+    left: -50rem;
+}
+
+.card:nth-child(6) img {
+    left: -48rem;
+}
+
+.card:nth-child(7) img {
+    left: -50rem;
+}
+
+.card:nth-child(8) img {
+    left: -48rem;
+} */

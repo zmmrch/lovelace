@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovelace Digital Arts - Servicios</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <link rel="stylesheet" href="./styles/tarjetas.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            left: 100%; /* Inicialmente fuera de la pantalla a la derecha */
+        }
+        #page1 { left: 0; } /* La primera página está visible inicialmente */
+        .cards {
+            display: flex;
+            gap: 20px;
+        }
+        /* .card {
+            width: 100px;
+            height: 150px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        } */
+        #page2 { background-color: #e0e0e0; }
+        #page3 { background-color: #d0d0d0; }
+        #page4 { background-color: #c0c0c0; }
+        .return-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page" id="page1">
+            <a href="./index.html"><img src="./img/LOVELACE- GRANDE SIN LEYENDA.png" alt="" style="width: 7%; position: absolute; top: 1.5%; left: 1.6%; z-index: 1;"></a>
+            <h1>SERVICI</h1>
+            <h1 style="left: 31.3%; color: #46214f;">O</h1>
+            <h1 style="left: 35.1%;">S</h1>
+            <div class="cards">
+                <div class="card" data-page="2"><img src="./img/servicios/01 - 697x697.png" alt=""></div>
+                <div class="card" data-page="3"><img src="./img/servicios/02 697x697.png" alt=""></div>
+                <div class="card" data-page="4"><img src="./img/servicios/03 - 697x697.png" alt=""></div>
+                <div class="card" data-page="5"><img src="./img/servicios/04 - 697x697.png" alt=""></div>
+                <div class="card" data-page="6"><img src="./img/servicios/05 - 697x697.png" alt=""></div>
+                <div class="card" data-page="7"><img src="./img/servicios/06 - 697x697.png" alt=""></div>   
+                <div class="card" data-page="8"><img src="./img/servicios/07 - 697x697.png" alt=""></div>
+                <div class="card" data-page="9"><img src="./img/servicios/08 - 697x697.png" alt=""></div>
+            </div>
+            <img src="./img/servicios/SIMBOLO Y MANO (1).png" alt="" style="width: 8%; position: absolute; top: 25%; z-index: 1; right: 0%;">
+            <div class="row">
+                <p>Explora todo lo que <span style="font-family: romantica-free; font-size: 1.2em;">LOVELACE</span> tiene para ofrecer.
+                    Conoce nuestros servicios de programación,
+                    artes y diseño pensados especialmente para
+                    transformar tus ideas en experiencias visuales
+                    únicas.</p>
+            </div>
+        </div>
+        <div class="page" id="page2">
+            <h1>Contenido de Tarjeta 1</h1>
+            <button class="return-button">Volver</button>
+        </div>
+        <div class="page" id="page3">
+            <h1>Contenido de Tarjeta 2</h1>
+            <button class="return-button">Volver</button>
+        </div>
+        <div class="page" id="page4">
+            <h1>Contenido de Tarjeta 3</h1>
+            <button class="return-button">Volver</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        function goToPage(pageNumber) {
+            if (pageNumber === currentPage) return;
+
+            const currentPageElement = document.getElementById(`page${currentPage}`);
+            const nextPageElement = document.getElementById(`page${pageNumber}`);
+
+            gsap.to(currentPageElement, { left: '-100%', duration: 0.5, ease: 'power2.inOut' });
+            gsap.fromTo(nextPageElement, 
+                { left: '100%' },
+                { left: '0%', duration: 0.5, ease: 'power2.inOut' }
+            );
+
+            currentPage = pageNumber;
+        }
+
+        function returnToFirstPage() {
+            goToPage(1);
+        }
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const pageNumber = parseInt(card.getAttribute('data-page'));
+                goToPage(pageNumber);
+            });
+        });
+
+        document.querySelectorAll('.return-button').forEach(button => {
+            button.addEventListener('click', returnToFirstPage);
+        });
+    </script>
+</body>
+</html>
