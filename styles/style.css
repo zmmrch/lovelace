@@ -1,46 +1,53 @@
+/* Variables CSS para mejor mantenibilidad */
+:root {
+  --chevron-size: 28px;
+  --chevron-thickness: 8px;
+  --text-color: #fff;
+  --animation-duration: 3s;
+  --container-size: 24px;
+}
 
-/*Scroll Down*/
+/* Scroll Down Animation */
 .container-chevrons {
   position: fixed;
-  top: 85%;
-  left: 8%;
-  width: 24px;
-  height: 24px;
+  inset: auto auto 15% 8%;
+  width: var(--container-size);
+  height: var(--container-size);
 }
 
 .chevron {
   position: absolute;
-  width: 28px;
-  height: 8px;
+  width: var(--chevron-size);
+  height: var(--chevron-thickness);
   opacity: 0;
   transform: scale3d(0.5, 0.5, 0.5);
-  animation: move 3s ease-out infinite;
+  animation: move var(--animation-duration) ease-out infinite;
 }
 
-.chevron:first-child {
-  animation: move 3s ease-out 1s infinite;
+.chevron:nth-child(1) {
+  animation-delay: 1s;
 }
 
 .chevron:nth-child(2) {
-  animation: move 3s ease-out 2s infinite;
+  animation-delay: 2s;
 }
 
-.chevron:before,
-.chevron:after {
-  content: ' ';
+.chevron::before,
+.chevron::after {
+  content: '';
   position: absolute;
   top: 0;
   height: 100%;
   width: 51%;
-  background: #fff;
+  background: var(--text-color);
 }
 
-.chevron:before {
+.chevron::before {
   left: 0;
   transform: skew(0deg, 30deg);
 }
 
-.chevron:after {
+.chevron::after {
   right: 0;
   width: 50%;
   transform: skew(0deg, -30deg);
@@ -49,7 +56,6 @@
 @keyframes move {
   25% {
     opacity: 1;
-
   }
   33% {
     opacity: 1;
@@ -67,14 +73,13 @@
 
 .text {
   display: block;
-  margin-top: 75px;
-  margin-left: -30px;
-  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  font-size: 12px;
-  color: #fff;
+  margin: 75px 0 0 -30px;
+  font-family: system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-color);
   text-transform: uppercase;
   white-space: nowrap;
-  opacity: .25;
+  opacity: 0.25;
   animation: pulse 2s linear alternate infinite;
 }
 
@@ -84,50 +89,58 @@
   }
 }
 
-
+/* Media Queries */
 @media (max-width: 768px) {
   .background-image {
-      background-position: center;
+    background-position: center;
   }
+  
   .moving-image {
-      width: 50%;
-      height: 100%;
+    width: 60%;
   }
+  
   #logo {
-      width: 50%;
+    width: 50%;
   }
+  
   .container {
-      flex-direction: column;
+    flex-direction: column;
   }
+  
   .card {
-      width: 60%;
+    width: 100%;
   }
-  #left-image {
-      width: 100%;
-      left: -45%;
-      aspect-ratio: 16/9;
-  }
+  
+  #left-image,
   #right-image {
-      width: 100%;
-      right: -45%;
-      aspect-ratio: 16/9;
+    width: 100%;
+    aspect-ratio: 16/9;
   }
+  
+  #left-image {
+    left: -45%;
+  }
+  
+  #right-image {
+    right: -45%;
+  }
+  
+  /* Tarjetas con propiedades comunes */
+  [id^="tarjeta_"] {
+    align-items: center;
+  }
+  
   #tarjeta_portfolio {
-      width: 90%; 
-      top: 10%;
-      align-items: center;
-      padding-left: 20%;
+    width: 45%;
+    padding-left: 20%;
   }
-
+  
   #tarjeta_servicios {
-      width: 80%; 
-      top: 10%;
-      align-items: center;
+    width: 40%;
   }
-
+  
   #tarjeta_hablemos {
-      width: 40%; 
-      align-items: center;
+    width: 30%;
   }
 }
 
