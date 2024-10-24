@@ -1,3 +1,4 @@
+
 /*Scroll Down*/
 .container-chevrons {
   position: fixed;
@@ -82,5 +83,37 @@
     opacity: 1;
   }
 }
+
+
+@media (max-width: 768px) {
+  .background-image {
+      background-position: center;
+  }
+  .moving-image {
+      width: 50%;
+  }
+  #logo {
+      width: 40%;
+  }
+  .container {
+      flex-direction: column;
+  }
+  .card {
+      width: 60%;
+      height: auto;
+  }
+  #left-image {
+      width: 100%;
+      left: -35%;
+      aspect-ratio: 16/9;
+  }
+  #right-image {
+      width: 100%;
+      right: -45%;
+      aspect-ratio: 16/9;
+  }
+}
+
+
 
 

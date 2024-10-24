@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovelace Digital Arts - Servicios</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <link rel="stylesheet" href="./styles/tarjetas.css">
+    <link rel="stylesheet" href="./styles/iridiscense.css">
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             overflow: hidden;
             width: 100%;
             height: 100%;
         }
+
+        #logo {
+            width: 7%; 
+            position: absolute; 
+            top: 1.5%; 
+            left: 1.6%; 
+            z-index: 1;
+        }
+
         .container {
             width: 100%;
             height: 100%;
             position: relative;
             overflow: hidden;
         }
+
         .page {
             position: absolute;
             width: 100%;
@@ -28,40 +41,233 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            left: 100%; /* Inicialmente fuera de la pantalla a la derecha */
+            left: 100%;
+            /* Inicialmente fuera de la pantalla a la derecha */
         }
-        #page1 { left: 0; } /* La primera página está visible inicialmente */
+
+        #page1 {
+            left: 0;
+        }
+
+        /* La primera página está visible inicialmente */
         .cards {
             display: flex;
             gap: 20px;
+            width: 85%;
         }
-        /* .card {
-            width: 100px;
-            height: 150px;
-            background-color: #f0f0f0;
+
+        /* .card img {
+            width: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 10px;
+            margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            align-items: right;
+            justify-content: right;
+            gap: 12px;
+            transition: 0.4s;
             cursor: pointer;
+            position: relative;
+            z-index: 1;
         } */
-        #page2 { background-color: #e0e0e0; }
-        #page3 { background-color: #d0d0d0; }
-        #page4 { background-color: #c0c0c0; }
-        .return-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+
+        #page2 {
+            background-color: #6e5885;
         }
+
+        #page3 {
+            background-color: #6e5885;
+        }
+
+        #page4 {
+            background-color: #6e5885;
+        }
+
+        .return-button {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            z-index: 2;
+        }
+
+        .container {
+            /* Por defecto en modo fila, uno al lado del otro */
+            display: flex;
+            flex-flow: row;
+        }
+
+        .item {
+            flex: 1 1 auto;
+        }
+
+        /* @media (max-width: 750px) {
+            .container {
+                flex-flow: column;
+            }
+        } */
+
+        h6 {
+            font-family: 'myriad-pro', sans-serif;
+            color: white;
+            font-size: 1.2rem;
+            text-align: justify;
+            padding-left: 1%;
+            padding-right: 75%;
+            position: relative;
+            z-index: 1;
+            transition: 0.4s;
+            margin-bottom: 20px;
+            margin-top: 0px;
+            padding-top: 0px;
+            padding-bottom: 20px;
+        }
+
+        .accordion_grupo button {
+            position: relative;
+            display: block;
+            text-align: left;
+            left: 1%;
+            width: 30%;
+            padding: 1em 0;
+            color: white;
+            font-size: 1.15rem;
+            font-weight: 400;
+            border: none;
+            background: none;
+            outline: none;
+        }
+        .accordion_grupo button:hover, .accordion_grupo button:focus {
+            cursor: pointer;
+            color: white;
+        }
+        .accordion_grupo button:hover::after, .accordion_grupo button:focus::after {
+            cursor: pointer;
+            color: white;
+            border: 1px solid white;
+        }
+        .accordion_grupo button .accordion_grupo-title {
+            padding: 1em 1.5em 1em 0;
+        }
+        .accordion_grupo button .icon {
+            display: inline-block;
+            position: absolute;
+            top: 18px;
+            right: 0;
+            width: 22px;
+            height: 22px;
+            border: 1px solid;
+            border-radius: 22px;
+        }
+        .accordion_grupo button .icon::before {
+            display: block;
+            position: absolute;
+            content: '';
+            top: 9px;
+            left: 5px;
+            width: 10px;
+            height: 2px;
+            background: currentColor;
+        }
+        .accordion_grupo button .icon::after {
+            display: block;
+            position: absolute;
+            content: '';
+            top: 5px;
+            left: 9px;
+            width: 2px;
+            height: 10px;
+            background: currentColor;
+        }
+        .accordion_grupo button[aria-expanded='true'] {
+            color: white;
+        }
+        .accordion_grupo button[aria-expanded='true'] .icon::after {
+            width: 0;
+        }
+        .accordion_grupo button[aria-expanded='true'] + .accordion_grupo-content {
+            opacity: 1;
+            max-height: 9em;
+            transition: all 200ms linear;
+            will-change: opacity, max-height;
+        }
+        .accordion_grupo .accordion_grupo-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms linear, max-height 200ms linear;
+            will-change: opacity, max-height;
+        }
+        .accordion_grupo .accordion_grupo-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 2em 0;
+        }
+
+         /* Media Queries */
+        @media screen and (max-width: 768px) {
+    
+            h1 {
+                font-size: 4rem;
+                line-height: 4rem;
+                margin-top: 20px;
+                margin-left: 70px;
+            }
+
+            #logo {
+                width: 15%;
+                object-fit: contain;
+                object-position: top;
+                margin-top: 2px;
+                margin-bottom: 20px;
+                margin-left: 5px;
+            }
+
+            #parrafo {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: 300;
+                padding-right: 15%;
+                padding-top: 10%;
+            }
+
+            .cards {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 80%;
+                align-items: center;
+                justify-content: center;
+                margin-top: 180px;
+                margin-bottom: 200px;
+            }
+
+            .card {
+                width: 85%;
+            }
+
+            .card img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 3 / 1.74;
+            }
+          
+        }   
+      
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="page" id="page1">
-            <a href="./index.html"><img src="./img/LOVELACE- GRANDE SIN LEYENDA.png" alt="" style="width: 7%; position: absolute; top: 1.5%; left: 1.6%; z-index: 1;"></a>
-            <h1>SERVICI</h1>
-            <h1 style="left: 31.3%; color: #46214f;">O</h1>
-            <h1 style="left: 35.1%;">S</h1>
+            <a href="./index.html"><img src="./img/LOVELACE- GRANDE SIN LEYENDA.png" alt="" loading="lazy" id="logo"></a>
+            <h1>SERVICIOS</h1>
+            <!-- <h1 style="left: 31.3%; color: #46214f;">O</h1>
+            <h1 style="left: 35.1%;">S</h1> -->
             <div class="cards">
                 <div class="card" data-page="2"><img src="./img/servicios/01 - 697x697.png" alt=""></div>
                 <div class="card" data-page="3"><img src="./img/servicios/02 697x697.png" alt=""></div>
@@ -72,9 +278,11 @@
                 <div class="card" data-page="8"><img src="./img/servicios/07 - 697x697.png" alt=""></div>
                 <div class="card" data-page="9"><img src="./img/servicios/08 - 697x697.png" alt=""></div>
             </div>
-            <img src="./img/servicios/SIMBOLO Y MANO (1).png" alt="" style="width: 8%; position: absolute; top: 25%; z-index: 1; right: 0%;">
+            <img src="./img/servicios/SIMBOLO Y MANO (1).png" alt="" loading="lazy"
+                style="width: 8%; position: absolute; top: 25%; z-index: 1; right: 0%;">
             <div class="row">
-                <p>Explora todo lo que <span style="font-family: romantica-free; font-size: 1.2em;">LOVELACE</span> tiene para ofrecer.
+                <p id="parrafo">Explora todo lo que <span style="font-family: romantica-free; font-size: 1.2em;">LOVELACE</span>
+                    tiene para ofrecer.
                     Conoce nuestros servicios de programación,
                     artes y diseño pensados especialmente para
                     transformar tus ideas en experiencias visuales
@@ -82,8 +290,62 @@
             </div>
         </div>
         <div class="page" id="page2">
-            <h1>Contenido de Tarjeta 1</h1>
             <button class="return-button">Volver</button>
+            <div class="container">
+                <div class="item rojo">
+                    <h1
+                        style="font-size: 22rem; margin-top: 5px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px; font-family: 'romantica-free'; color: white; left: 5%;">
+                        01.</h1>
+                    <h2 style="font-size: 8rem; left: 5%;">LOGOS E IDENTIDAD <br>DE MARCA</h2>
+                    <p id="parrafo1">Abordamos todo lo que compete a la
+                        representación gráfica de tu marca en la identidad y
+                        simbología de cada empresa. Esto abarca el
+                        diseño del logotipo, junto con la elección de
+                        colores, tipografías y estilos para formar una
+                        identidad clara y reconocible.</p>
+                        <button class="iridiscent">iridescent button</button>
+                </div>
+                <div class="item verde" style="margin-top: 20%;">
+                    <div class="accordion_grupo">
+                      <div class="accordion_grupo-item">
+                        <button id="accordion_grupo-button-1" aria-expanded="false"><span class="accordion_grupo-title">DISEÑO DE LOGOTIPO</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion_grupo-content">
+                            <h6>Hacemos que tu marca se distinga con un
+                                logotipo que capture la identidad y
+                                personalidad de tu empresa.</h6>
+                        </div>
+                      </div>
+                      <div class="accordion_grupo-item">
+                        <button id="accordion_grupo-button-2" aria-expanded="false"><span class="accordion_grupo-title">GUÍAS DE ESTÍLO PARA MARCAS</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion_grupo-content">
+                            <h6>Hacemos que tu marca se distinga con un
+                                logotipo que capture la identidad y
+                                personalidad de tu empresa.</h6>
+                        </div>
+                      </div>
+                      <div class="accordion_grupo-item">
+                        <button id="accordion_grupo-button-3" aria-expanded="false"><span class="accordion_grupo-title">DISEÑO DE PAPELERÍA CORPORATIVA Y RETAIL</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion_grupo-content">
+                            <h6>Hacemos que tu marca se distinga con un
+                                logotipo que capture la identidad y
+                                personalidad de tu empresa.</h6>
+                        </div>
+                      </div>
+                      <div class="accordion_grupo-item">
+                        <button id="accordion_grupo-button-4" aria-expanded="false"><span class="accordion_grupo-title">TIPOGRAFÍA</span><span class="icon" aria-hidden="true"></span></button>
+                        <div class="accordion_grupo-content">
+                            <h6>Hacemos que tu marca se distinga con un
+                                logotipo que capture la identidad y
+                                personalidad de tu empresa.</h6>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="item azul">
+                    <img src="./img/servicios/FONDO 905X1080.png" loading="lazy" alt="" style="width: 45%; position: absolute; top: 0; right: 0;">
+                    <img src="./img/servicios/LOGO 509X624.png" alt="" loading="lazy" style="width: 30%; position: absolute; top: 12%; left: 63%; z-index: 1;">
+                </div>
+            </div>
         </div>
         <div class="page" id="page3">
             <h1>Contenido de Tarjeta 2</h1>
@@ -96,8 +358,24 @@
     </div>
 
     <script>
-        let currentPage = 1;
+        const items = document.querySelectorAll(".accordion_grupo button");
+        function toggleAccordion() {
+        const itemToggle = this.getAttribute('aria-expanded');
+        
+        for (i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+        }
+        
+        if (itemToggle == 'false') {
+            this.setAttribute('aria-expanded', 'true');
+        }
+        }
 
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+    </script>
+
+    <script>
+        let currentPage = 1;
         function goToPage(pageNumber) {
             if (pageNumber === currentPage) return;
 
@@ -105,7 +383,7 @@
             const nextPageElement = document.getElementById(`page${pageNumber}`);
 
             gsap.to(currentPageElement, { left: '-100%', duration: 0.5, ease: 'power2.inOut' });
-            gsap.fromTo(nextPageElement, 
+            gsap.fromTo(nextPageElement,
                 { left: '100%' },
                 { left: '0%', duration: 0.5, ease: 'power2.inOut' }
             );
@@ -116,17 +394,16 @@
         function returnToFirstPage() {
             goToPage(1);
         }
-
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('click', () => {
                 const pageNumber = parseInt(card.getAttribute('data-page'));
                 goToPage(pageNumber);
             });
         });
-
         document.querySelectorAll('.return-button').forEach(button => {
             button.addEventListener('click', returnToFirstPage);
         });
     </script>
 </body>
+
 </html>

@@ -92,14 +92,24 @@
                 width: 50%;
             }
             #logo {
-                width: 50%;
+                width: 40%;
             }
             .container {
                 flex-direction: column;
             }
             .card {
-                width: 60%;
-                margin: 10px 0;
+                width: 100%;
+                height: auto;
+            }
+            #left-image {
+                width: 100%;
+                left: -35%;
+                aspect-ratio: 16/9;
+            }
+            #right-image {
+                width: 100%;
+                right: -45%;
+                aspect-ratio: 16/9;
             }
         }
     </style>
@@ -107,8 +117,8 @@
 <body>
     <div class="background-image"></div>
     
-    <img src="./img/SUPERPOSICIÓN IZQ.png" alt="Imagen izquierda" class="moving-image" id="left-image">
-    <img src="./img/SUPERPOSICIÓN DER.png" alt="Imagen derecha" class="moving-image" id="right-image">
+    <img src="./img/SUPERPOSICIÓN IZQ.png" alt="Imagen izquierda" loading="lazy" class="moving-image" id="left-image">
+    <img src="./img/SUPERPOSICIÓN DER.png" alt="Imagen derecha" loading="lazy" class="moving-image" id="right-image">
     <img src="./img/Sin título-1.png" alt="logo" id="logo">
 
     <div class="container-chevrons">
@@ -121,18 +131,18 @@
    
     <div class="container">
         <div class="card">
-            <div class="card-item"><img src="./img/TARJETA PORTFOLIO.png" alt="" style="width: 80%; top: 20%;"></div>
+            <div class="card-item"><img src="./img/TARJETA PORTFOLIO.png" alt="tarjeta_portfolio" loading="lazy" style="width: 80%; top: 20%;"></div>
         </div>
         <div class="card">
-            <a href="./servicios.html"><div class="card-item"><img src="./img/TARJETA SERVICIOS.png" alt="" style="width: 80%; top: 20%;"></div></a>
+            <a href="./servicios.html"><div class="card-item"><img src="./img/TARJETA SERVICIOS.png" alt="tarjeta_servicios" loading="lazy" style="width: 80%; top: 20%;"></div></a>
         </div>
         <div class="card">
-            <div class="card-item"><img src="./img/TARJETA HABLEMOS.png" alt="" style="width: 60%; top: 20%;"></div>
+            <div class="card-item"><img src="./img/TARJETA HABLEMOS.png" alt="tarjeta_hablemos" loading="lazy" style="width: 60%; top: 20%;"></div>
         </div>
     </div>
 
     <script>
-         const leftImage = document.getElementById('left-image');
+        const leftImage = document.getElementById('left-image');
         const rightImage = document.getElementById('right-image');
         const logo = document.getElementById('logo');
         const cards = document.querySelectorAll('.card');
