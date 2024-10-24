@@ -2,8 +2,8 @@
 /*Scroll Down*/
 .container-chevrons {
   position: fixed;
-  top: 90%;
-  left: 5%;
+  top: 85%;
+  left: 8%;
   width: 24px;
   height: 24px;
 }
@@ -91,26 +91,43 @@
   }
   .moving-image {
       width: 50%;
+      height: 100%;
   }
   #logo {
-      width: 40%;
+      width: 50%;
   }
   .container {
       flex-direction: column;
   }
   .card {
       width: 60%;
-      height: auto;
   }
   #left-image {
       width: 100%;
-      left: -35%;
+      left: -45%;
       aspect-ratio: 16/9;
   }
   #right-image {
       width: 100%;
       right: -45%;
       aspect-ratio: 16/9;
+  }
+  #tarjeta_portfolio {
+      width: 90%; 
+      top: 10%;
+      align-items: center;
+      padding-left: 20%;
+  }
+
+  #tarjeta_servicios {
+      width: 80%; 
+      top: 10%;
+      align-items: center;
+  }
+
+  #tarjeta_hablemos {
+      width: 40%; 
+      align-items: center;
   }
 }
 

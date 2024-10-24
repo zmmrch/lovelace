@@ -84,34 +84,23 @@
             font-size: 24px;
             color: #333;
         }
-        @media (max-width: 768px) {
-            .background-image {
-                background-position: center;
-            }
-            .moving-image {
-                width: 50%;
-            }
-            #logo {
-                width: 40%;
-            }
-            .container {
-                flex-direction: column;
-            }
-            .card {
-                width: 100%;
-                height: auto;
-            }
-            #left-image {
-                width: 100%;
-                left: -35%;
-                aspect-ratio: 16/9;
-            }
-            #right-image {
-                width: 100%;
-                right: -45%;
-                aspect-ratio: 16/9;
-            }
+
+        #tarjeta_portfolio {
+            width: 90%; 
+            top: 20%;
         }
+
+        #tarjeta_servicios {
+            width: 80%; 
+            top: 20%;
+        }
+
+        #tarjeta_hablemos {
+            width: 60%; 
+            top: 20%;
+            padding-left: 25%;
+        }
+        
     </style>
 </head>
 <body>
@@ -131,13 +120,13 @@
    
     <div class="container">
         <div class="card">
-            <div class="card-item"><img src="./img/TARJETA PORTFOLIO.png" alt="tarjeta_portfolio" loading="lazy" style="width: 80%; top: 20%;"></div>
+            <a href="./portfolio.html"><div class="card-item"><img src="./img/TARJETA PORTFOLIO.png" alt="tarjeta_portfolio" loading="lazy" id="tarjeta_portfolio"></div></a>
         </div>
         <div class="card">
-            <a href="./servicios.html"><div class="card-item"><img src="./img/TARJETA SERVICIOS.png" alt="tarjeta_servicios" loading="lazy" style="width: 80%; top: 20%;"></div></a>
+            <a href="./servicios.html"><div class="card-item"><img src="./img/TARJETA SERVICIOS.png" alt="tarjeta_servicios" loading="lazy" id="tarjeta_servicios"></div></a>
         </div>
         <div class="card">
-            <div class="card-item"><img src="./img/TARJETA HABLEMOS.png" alt="tarjeta_hablemos" loading="lazy" style="width: 60%; top: 20%;"></div>
+            <a href="./hablemos.html"><div class="card-item"><img src="./img/TARJETA HABLEMOS.png" alt="tarjeta_hablemos" loading="lazy" id="tarjeta_hablemos"></div"></a>
         </div>
     </div>
 
@@ -199,5 +188,7 @@
             });
         });
     </script>
+
+    
 </body>
 </html>
