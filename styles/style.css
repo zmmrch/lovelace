@@ -219,10 +219,6 @@ html {
     width: 70%;
   }
 
-  .container {
-    flex-direction: column;
-  }
-
   .card {
     width: 80%;
     opacity: 0;
@@ -244,19 +240,15 @@ html {
   #left-image,
   #right-image {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/3;
   }
 
   #left-image {
     left: -45%;
-    align-items: center;
-    justify-content: flex-end;
   }
 
   #right-image {
     right: -45%;
-    align-items: center;
-    justify-content: flex-end;
   }
 
   /* Tarjetas con propiedades comunes */
