@@ -235,7 +235,6 @@ html {
   #right-image {
     width: 100%;
     aspect-ratio: 16/9;
-    transform: scale(1.5);
   }
 
   #left-image {
