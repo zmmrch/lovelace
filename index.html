@@ -98,12 +98,12 @@
 
             // En móvil, reducir o deshabilitar la animación de las imágenes laterales
             if (!isMobile) {
-                leftImage.style.transform = `translateX(${-movement}px)`;
-                rightImage.style.transform = `translateX(${movement}px)`;
+                leftImage.style.transform = `translateX(${-movement}px) translateY(-50%)`;
+                rightImage.style.transform = `translateX(${movement}px) translateY(-50%)`;
             } else {
                 // En móvil, mantener las imágenes más estáticas o usar una animación más sutil
-                leftImage.style.transform = `translateX(${-movement * 0.5}px) translateY(-50%)`;
-                rightImage.style.transform = `translateX(${movement * 0.5}px) translateY(-50%)`;
+                leftImage.style.transform = `translateX(${-movement * 0.5}px) translateY(0)`;
+                rightImage.style.transform = `translateX(${movement * 0.5}px) translateY(0)`;
             }
 
             // Mover y reducir el logo con valores responsivos
