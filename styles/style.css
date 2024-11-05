@@ -239,14 +239,14 @@ html {
 
   #left-image {
     left: -45%;
-    transform: scale(1.5);
-    transform: translateY(0);
+    align-items: center;
+    justify-content: flex-end;
   }
 
   #right-image {
     right: -45%;
-    transform: scale(1.5);
-    transform: translateY(0);
+    align-items: center;
+    justify-content: flex-end;
   }
 
   /* Tarjetas con propiedades comunes */
