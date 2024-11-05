@@ -5,103 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lovelace Digital Arts</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 160vh; /* Aumentamos la altura para permitir más scroll */
-            overflow-x: hidden;
-        }
-        .background-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./img/IMAGEN\ DE\ FONDO.jpg');
-            background-size: cover;
-            background-position: left;
-            transition: transform 0.5s ease-out;
-            z-index: -1;
-        }
-        .moving-image {
-            position: fixed;
-            top: 50%;
-            width: 50%;
-            height: 100%;
-            transition: transform 0.5s ease-out;
-        }
-        #left-image {
-            left: 0;
-            transform: translateY(-50%);
-        }
-        #right-image {
-            right: 0;
-            transform: translateY(-50%);
-        }
-        #logo {
-            position: fixed;
-            width: 20%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.5s ease-out;
-        }
-        .mouse {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .container {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding-top: 100vh; /* Asegura que las tarjetas empiecen después del primer scroll */
-        }
-        .card {
-            width: 80%;
-            height: 200px;
-            margin: 20px 0;
-            /* background-color: rgba(255, 255, 255, 0.8); */
-            border-radius: 10px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .card-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .card-item {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: #333;
-        }
-
-        #tarjeta_portfolio {
-            width: 100%; 
-            top: 20%;
-        }
-
-        #tarjeta_servicios {
-            width: 80%; 
-            top: 20%;
-        }
-
-        #tarjeta_hablemos {
-            width: 60%; 
-            top: 30%;
-            padding-left: 25%;
-        }
-        
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+    <script src="./scripts/iridiscense.js"></script>
+    
 </head>
 <body>
     <div class="background-image"></div>
@@ -117,77 +25,11 @@
         <span class="text">Scroll down</span>
     </div>
 
-   
-    <div class="container">
-        <div class="card">
-            <a href="./portfolio.html"><div class="card-item"><img src="./img/TARJETA PORTFOLIO.png" alt="tarjeta_portfolio" loading="lazy" id="tarjeta_portfolio"></div></a>
-        </div>
-        <div class="card">
-            <a href="./servicios.html"><div class="card-item"><img src="./img/TARJETA SERVICIOS.png" alt="tarjeta_servicios" loading="lazy" id="tarjeta_servicios"></div></a>
-        </div>
-        <div class="card">
-            <a href="./hablemos.html"><div class="card-item"><img src="./img/TARJETA HABLEMOS.png" alt="tarjeta_hablemos" loading="lazy" id="tarjeta_hablemos"></div"></a>
-        </div>
+    <div class="card">
+        <a href="./portfolio.html"><div class="card-item"><img src="./img/TARJETA PORTFOLIO.png" alt="tarjeta_portfolio" loading="lazy" id="tarjeta_portfolio"></div></a>
+        <a href="./servicios.html"><div class="card-item"><img src="./img/TARJETA SERVICIOS.png" alt="tarjeta_servicios" loading="lazy" id="tarjeta_servicios"></div></a>
+        <a href="./hablemos.html"><div class="card-item"><img src="./img/TARJETA HABLEMOS.png" alt="tarjeta_hablemos" loading="lazy" id="tarjeta_hablemos"></div"></a>
     </div>
-<!-- 
-    <script>
-        const leftImage = document.getElementById('left-image');
-        const rightImage = document.getElementById('right-image');
-        const logo = document.getElementById('logo');
-        const cards = document.querySelectorAll('.card');
-        const windowHeight = window.innerHeight;
-        const windowWidth = window.innerWidth;
-        let lastScrollTop = 0;
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - windowHeight;
-            const scrollPercentage = scrollTop / scrollHeight;
-
-            // Determinar la dirección del scroll
-            const scrollingDown = scrollTop > lastScrollTop;
-            lastScrollTop = scrollTop;
-
-            // Mover imágenes laterales
-            const movement = windowWidth * 0.25 * scrollPercentage;
-            leftImage.style.transform = `translateX(${-movement}px) translateY(-50%)`;
-            rightImage.style.transform = `translateX(${movement}px) translateY(-50%)`;
-
-            // Mover y reducir el logo
-            const maxScroll = windowHeight;
-            const scrollProgress = Math.min(scrollTop / maxScroll, 1);
-
-            const startSize = 1;
-            const endSize = -0.1;
-            const currentSize = startSize - (startSize - endSize) * scrollProgress;
-
-            const startTop = 50;
-            const endTop = -20;
-            const currentTop = startTop - (startTop - endTop) * scrollProgress;
-
-            const startLeft = 50;
-            const endLeft = -25;
-            const currentLeft = startLeft - (startLeft - endLeft) * scrollProgress;
-
-            logo.style.top = `${currentTop}%`;
-            logo.style.left = `${currentLeft}%`;
-            logo.style.transform = `translate(-50%, -50%) scale(${currentSize})`;
-
-            // Mostrar u ocultar tarjetas
-            cards.forEach((card, index) => {
-                const cardTop = card.offsetTop;
-                const cardVisible = cardTop < scrollTop + windowHeight * 0.9;
-                
-                if (cardVisible && scrollingDown) {
-                    setTimeout(() => {
-                        card.classList.add('card-visible');
-                    }, index * 200);
-                } else if (!cardVisible || !scrollingDown) {
-                    card.classList.remove('card-visible');
-                }
-            });
-        });
-    </script> -->
 
     <script>
                 // Función para detectar si es dispositivo móvil
