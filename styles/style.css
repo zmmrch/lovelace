@@ -240,7 +240,10 @@ html {
   #left-image,
   #right-image {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
+    position: fixed;
+    top: 50%;
+    z-index: -1;
   }
 
   #left-image {
