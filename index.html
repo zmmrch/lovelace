@@ -32,136 +32,92 @@
     </div>
 
     <script>
-                // Función para detectar si es dispositivo móvil
-        function isMobileDevice() {
-            return (window.innerWidth <= 768) || 
+        const isMobileDevice = () => {
+        return (window.innerWidth <= 768) || 
                 ('ontouchstart' in window) ||
                 (navigator.maxTouchPoints > 0);
-        }
+        };
 
         const leftImage = document.getElementById('left-image');
         const rightImage = document.getElementById('right-image');
         const logo = document.getElementById('logo');
         const cards = document.querySelectorAll('.card');
-        const windowHeight = window.innerHeight;
-        const windowWidth = window.innerWidth;
-        let lastScrollTop = 0;
 
-        // Configuración responsive
         const config = {
-            desktop: {
-                imageMovement: 0.25,
-                logoStartSize: 1,
-                logoEndSize: -0.1,
-                logoStartTop: 50,
-                logoEndTop: -20,
-                logoStartLeft: 50,
-                logoEndLeft: -25,
-                cardVisibilityThreshold: 0.9
-            },
-            mobile: {
-                imageMovement: 0.15,
-                logoStartSize: 0.7,
-                logoEndSize: -0.05,
-                logoStartTop: 50,
-                logoEndTop: -10,
-                logoStartLeft: 50,
-                logoEndLeft: -15,
-                cardVisibilityThreshold: 0.8
-            }
+        desktop: {
+            imageMovement: 0.25,
+            logoStartSize: 1,
+            logoEndSize: -0.1,
+            logoStartTop: 50,
+            logoEndTop: -20,
+            logoStartLeft: 50,
+            logoEndLeft: -25,
+            cardVisibilityThreshold: 0.9
+        },
+        mobile: {
+            imageMovement: 0.15,
+            logoStartSize: 0.7,
+            logoEndSize: -0.05,
+            logoStartTop: 50,
+            logoEndTop: -10,
+            logoStartLeft: 50,
+            logoEndLeft: -15,
+            cardVisibilityThreshold: 0.8
+        }
         };
 
-        window.addEventListener('scroll', () => {
-            const isMobile = isMobileDevice();
-            const currentConfig = isMobile ? config.mobile : config.desktop;
-            
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - windowHeight;
-            const scrollPercentage = scrollTop / scrollHeight;
+        let lastScrollTop = 0;
 
-            // Determinar la dirección del scroll
-            const scrollingDown = scrollTop > lastScrollTop;
-            lastScrollTop = scrollTop;
+        const handleScroll = () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = scrollTop / scrollHeight;
 
-            // Mover imágenes laterales con valores responsivos
-            const movement = windowWidth * currentConfig.imageMovement * scrollPercentage;
-            
-            // En móvil, reducir o deshabilitar la animación de las imágenes laterales
-            // if (!isMobile) {
-            //     leftImage.style.transform = `translateX(${-movement}px) translateY(-50%)`;
-            //     rightImage.style.transform = `translateX(${movement}px) translateY(-50%)`;
-            // } else {
-                // En móvil, mantener las imágenes más estáticas o usar una animación más sutil
-            //     leftImage.style.transform = `translateX(${-movement * 0.5}px) translateY(-50%)`;
-            //     rightImage.style.transform = `translateX(${movement * 0.5}px) translateY(-50%)`;
-            // }
+        const isMobile = isMobileDevice();
+        const currentConfig = isMobile ? config.mobile : config.desktop;
 
-            // En móvil, reducir o deshabilitar la animación de las imágenes laterales
-            if (!isMobile) {
-                leftImage.style.transform = `translateX(${-movement}px) translateY(-50%)`;
-                rightImage.style.transform = `translateX(${movement}px) translateY(-50%)`;
-            } else {
-                // En móvil, mantener las imágenes más estáticas o usar una animación más sutil
-                leftImage.style.transform = `translateX(${-movement * 0.5}px) translateY(0)`;
-                rightImage.style.transform = `translateX(${movement * 0.5}px) translateY(0)`;
-            }
+        // Determinar la dirección del scroll
+        const scrollingDown = scrollTop > lastScrollTop;
+        lastScrollTop = scrollTop;
 
-            // Mover y reducir el logo con valores responsivos
-            const maxScroll = windowHeight;
-            const scrollProgress = Math.min(scrollTop / maxScroll, 1);
+        // Mover imágenes laterales horizontalmente
+        const movement = window.innerWidth * currentConfig.imageMovement * scrollPercentage;
+        leftImage.style.transform = `translateX(${-movement}px) translateY(-50%)`;
+        rightImage.style.transform = `translateX(${movement}px) translateY(-50%)`;
 
-            const currentSize = currentConfig.logoStartSize - 
-                (currentConfig.logoStartSize - currentConfig.logoEndSize) * scrollProgress;
+        // Mover y reducir el logo
+        const maxScroll = window.innerHeight;
+        const scrollProgress = Math.min(scrollTop / maxScroll, 1);
 
-            const currentTop = currentConfig.logoStartTop - 
-                (currentConfig.logoStartTop - currentConfig.logoEndTop) * scrollProgress;
+        const currentSize = currentConfig.logoStartSize - 
+                            (currentConfig.logoStartSize - currentConfig.logoEndSize) * scrollProgress;
+        const currentTop = currentConfig.logoStartTop - 
+                            (currentConfig.logoStartTop - currentConfig.logoEndTop) * scrollProgress;
+        const currentLeft = currentConfig.logoStartLeft - 
+                            (currentConfig.logoStartLeft - currentConfig.logoEndLeft) * scrollProgress;
 
-            const currentLeft = currentConfig.logoStartLeft - 
-                (currentConfig.logoStartLeft - currentConfig.logoEndLeft) * scrollProgress;
+        const transform = `translate(-50%, -50%) scale(${currentSize})`;
+        logo.style.top = `${currentTop}%`;
+        logo.style.left = `${currentLeft}%`;
+        logo.style.transform = transform;
 
-            // Aplicar transformaciones con easing para movimientos más suaves en móvil
-            const transform = isMobile ? 
-                `translate(-50%, -50%) scale(${currentSize}) translateZ(0)` :
-                `translate(-50%, -50%) scale(${currentSize})`;
-
-            logo.style.top = `${currentTop}%`;
-            logo.style.left = `${currentLeft}%`;
-            logo.style.transform = transform;
-
-            // Mostrar u ocultar tarjetas con umbral ajustado para móvil
-            cards.forEach((card, index) => {
-                const cardTop = card.offsetTop;
-                const cardVisible = cardTop < scrollTop + windowHeight * currentConfig.cardVisibilityThreshold;
-                
-                if (cardVisible && scrollingDown) {
-                    setTimeout(() => {
-                        card.classList.add('card-visible');
-                    }, isMobile ? index * 150 : index * 200); // Timing más rápido en móvil
-                } else if (!cardVisible || !scrollingDown) {
-                    card.classList.remove('card-visible');
-                }
-            });
-        });
-
-        // Agregar listener para orientación en dispositivos móviles
-        window.addEventListener('orientationchange', () => {
-            // Pequeña pausa para permitir que el navegador actualice las dimensiones
+        // Mostrar u ocultar tarjetas
+        cards.forEach((card, index) => {
+            const cardTop = card.offsetTop;
+            const cardVisible = cardTop < scrollTop + window.innerHeight * currentConfig.cardVisibilityThreshold;
+            if (cardVisible && scrollingDown) {
             setTimeout(() => {
-                // Forzar un evento de scroll para actualizar las posiciones
-                window.dispatchEvent(new Event('scroll'));
-            }, 200);
-        });
-
-        // Optimización para rendimiento en móvil
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    // Tu código de manejo de scroll aquí
-                    ticking = false;
-                });
-                ticking = true;
+                card.classList.add('card-visible');
+            }, isMobile ? index * 150 : index * 200);
+            } else if (!cardVisible || !scrollingDown) {
+            card.classList.remove('card-visible');
             }
+        });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', () => {
+        window.requestAnimationFrame(handleScroll);
         });
     </script>
 
