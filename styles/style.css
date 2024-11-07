@@ -247,11 +247,13 @@ html {
   }
 
   #left-image {
-    left: -45%;
+    transform: scaleX(-1);
+    left: -50%;
   }
 
   #right-image {
-    right: -45%;
+    transform: scaleX(-1);
+    right: -50%;
   }
 
   /* Tarjetas con propiedades comunes */
