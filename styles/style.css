@@ -239,20 +239,19 @@ html {
 
   #left-image,
   #right-image {
-    width: 100%;
+    width: 100%;    
+    height: 160vh;
     aspect-ratio: 16/9;
+    position: fixed;
+    top: 50%;
     z-index: -1;
   }
 
   #left-image {
-    position: fixed;
-    top: 50%;
     left: -45%;
   }
 
   #right-image {
-    position: fixed;
-    top: 50%;
     right: -45%;
   }
 
