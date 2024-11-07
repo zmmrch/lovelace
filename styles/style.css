@@ -241,19 +241,19 @@ html {
   #right-image {
     width: 100%;
     aspect-ratio: 16/9;
-    position: fixed;
-    top: 50%;
     z-index: -1;
   }
 
   #left-image {
-    transform: scaleX(-1);
-    left: -50%;
+    position: fixed;
+    top: 50%;
+    left: -45%;
   }
 
   #right-image {
-    transform: scaleX(-1);
-    right: -50%;
+    position: fixed;
+    top: 50%;
+    right: -45%;
   }
 
   /* Tarjetas con propiedades comunes */
