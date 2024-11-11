@@ -1,3 +1,4 @@
+@media screen and (orientation: portrait) {
 
   .iridiscent {
     position: absolute;
@@ -68,6 +69,9 @@
       margin-left: 0%;
     }
   }
+}
+
+
 
 
    

@@ -1,3 +1,5 @@
+@media screen and (orientation: portrait) {
+
 /* Variables CSS para mejor mantenibilidad */
 :root {
   --chevron-size: 28px;
@@ -271,4 +273,6 @@ html {
     width: 50%;
     padding-left: 23%;
   }
+}
+
 }
