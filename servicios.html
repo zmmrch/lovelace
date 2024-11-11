@@ -56,24 +56,6 @@
             width: 85%;
         }
 
-        /* .card img {
-            width: 100%;
-            object-fit: cover;
-            object-position: top;
-            border-radius: 10px;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: right;
-            justify-content: right;
-            gap: 12px;
-            transition: 0.4s;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-        } */
-
         #page2 {
             background-color: #6e5885;
         }
@@ -103,19 +85,13 @@
             flex: 1 1 auto;
         }
 
-        /* @media (max-width: 750px) {
-            .container {
-                flex-flow: column;
-            }
-        } */
-
         h6 {
             font-family: 'myriad-pro', sans-serif;
             color: white;
             font-size: 1.2rem;
             text-align: justify;
-            padding-left: 1%;
-            padding-right: 75%;
+            padding-left: 0%;
+            padding-right: 70%;
             position: relative;
             z-index: 1;
             transition: 0.4s;
@@ -129,8 +105,8 @@
             position: relative;
             display: block;
             text-align: left;
-            left: 1%;
-            width: 30%;
+            left: -8%;
+            width: 38%;
             padding: 1em 0;
             color: white;
             font-size: 1.15rem;
@@ -206,6 +182,14 @@
             margin: 2em 0;
         }
 
+        #num1 {
+            font-size: 22rem; margin-top: 5px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px; font-family: 'romantica-free'; color: white; left: 5%;
+        }
+
+        #num2 {
+            font-size: 8rem; left: 5%;
+        }
+
          /* Media Queries */
         @media screen and (max-width: 768px) {
     
@@ -253,7 +237,77 @@
             .card img {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 2.88 / 1.59;
+                aspect-ratio: 2.52 / 1.59;
+            }
+
+            #container1 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            #num1 {
+                font-size: 5rem; margin-top: 8px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px; font-family: 'romantica-free'; color: white; left: 5%;
+            }
+
+            #num2 {
+                font-size: 2.5rem; left: 1%; margin-top: -200px;
+            }
+
+            #parrafo1 {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                font-size: 1rem;
+                font-weight: 300;
+                padding-right: 15%;
+                padding-top: 1%;
+            }
+
+            .accordion_grupo {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                justify-content: left;
+                margin-right: 10%;
+                margin-top: 100px;
+            }
+
+            .accordion_grupo-title {
+                width: 100%;
+                height: 100%;
+                text-align: left;
+                font-size: 1rem;
+                font-weight: 300;
+                padding-left: 15%;
+            }
+
+            .accordion_grupo button {
+                width: 100%;
+                height: 100%;
+                text-align: left;
+                font-size: 1rem;
+                font-weight: 300;
+            } 
+
+            .accordion_grupo .item  {
+                width: 100%;
+                height: auto;
+                text-align: left;
+                font-weight: 300;
+                padding-right: 15%;
+            }
+
+            h6 {
+                font-size: 1rem;
+                font-weight: 300;
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-bottom: 0px;
             }
           
         }   
@@ -291,21 +345,20 @@
         </div>
         <div class="page" id="page2">
             <button class="return-button">Volver</button>
-            <div class="container">
+            <div class="container" id="container1">
+
                 <div class="item rojo">
-                    <h1
-                        style="font-size: 22rem; margin-top: 5px; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0px; font-family: 'romantica-free'; color: white; left: 5%;">
-                        01.</h1>
-                    <h2 style="font-size: 8rem; left: 5%;">LOGOS E IDENTIDAD <br>DE MARCA</h2>
+                    <h1 id="num1">01.</h1>
+                    <h2 id="num2">LOGOS E IDENTIDAD <br>DE MARCA</h2>
                     <p id="parrafo1">Abordamos todo lo que compete a la
                         representación gráfica de tu marca en la identidad y
                         simbología de cada empresa. Esto abarca el
                         diseño del logotipo, junto con la elección de
                         colores, tipografías y estilos para formar una
                         identidad clara y reconocible.</p>
-                        <button class="iridiscent">iridescent button</button>
+                        
                 </div>
-                <div class="item verde" style="margin-top: 20%;">
+                <div class="item verde" style="margin-top: 20%; margin-left: 20%;">
                     <div class="accordion_grupo">
                       <div class="accordion_grupo-item">
                         <button id="accordion_grupo-button-1" aria-expanded="false"><span class="accordion_grupo-title">DISEÑO DE LOGOTIPO</span><span class="icon" aria-hidden="true"></span></button>
@@ -341,6 +394,7 @@
                       </div>
                     </div>
                 </div>
+                <button class="iridiscent">iridescent button</button>
                 <div class="item azul">
                     <img src="./img/servicios/FONDO 905X1080.png" loading="lazy" alt="" style="width: 45%; position: absolute; top: 0; right: 0;">
                     <img src="./img/servicios/LOGO 509X624.png" alt="" loading="lazy" style="width: 30%; position: absolute; top: 12%; left: 63%; z-index: 1;">

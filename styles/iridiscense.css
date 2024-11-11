@@ -1,6 +1,6 @@
 
   .iridiscent {
-    position: relative;
+    position: absolute;
     z-index: 0;
     padding: 1rem 3rem;
     border: 1px solid #799df1;
@@ -19,6 +19,8 @@
     animation: moving1;
     animation-duration: 8s;
     animation-iteration-count: infinite;
+    margin-top: 45%;
+    margin-left: 5%;
   }
   @keyframes moving1 {
     20% {
@@ -57,9 +59,26 @@
   .iridiscent:hover {
     box-shadow: inset 0 0 1rem 0 #f7f7f6, 0 0 1rem 0 #f7f7f6;
   }
-  @media screen and (max-width: 450px) {
+
+  @media only screen and (max-width: 480px) {
     .iridiscent {
       font-size: 1rem;
+      padding: 0.5rem 1rem;
+      margin-top: 80%;
+      margin-left: 10%;
+
     }
   }
+
+
+   
+
+
+
+
+  
+  
+
+
+
   
