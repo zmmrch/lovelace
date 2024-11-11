@@ -1,4 +1,4 @@
-@media screen and (orientation: portrait) {
+@media only screen and (orientation: portrait) {
 
   .iridiscent {
     position: absolute;
