@@ -196,11 +196,12 @@
         }
 
         #imgserv1 {
-            width: 45%; position: absolute; top: 0; right: 0;
+            width: 40%; position: absolute; top: 12%; left: 58%;
+            /* width: 45%; position: absolute; top: 0; right: 0; */
         }
 
-        #imgserv2 {
-            width: 30%; position: absolute; top: 12%; left: 63%; z-index: 1;
+        .mano {
+            width: 5%; position: absolute; top: 25%; z-index: 1; right: 0%;
         }
 
          /* Media Queries */
@@ -232,27 +233,6 @@
                 padding-top: 10%;
             }
 
-            .cards {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                height: 80%;
-                align-items: center;
-                justify-content: center;
-                margin-top: 180px;
-                margin-bottom: 200px;
-            }
-
-            .card {
-                width: 85%;
-            }
-
-            .card img {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 2.88 / 1.59;
-            }
-
             #container1 {
                 display: flex;
                 flex-direction: column;
@@ -267,6 +247,10 @@
 
             #num2 {
                 font-size: 3rem; left: 2.5%; margin-top: -200px;
+            }
+
+            #num21 {
+                font-size: 2.5rem; left: 2%; margin-top: -200px;
             }
 
             #parrafo1 {
@@ -329,13 +313,16 @@
             }
 
             #imgserv1 {
-                width: 51%; position: absolute; top: 12%; right: 0;
+                width: 51%; position: absolute; top: 16%; left: 45%;
             }
 
             #imgserv2 {
-                width: 30%; position: absolute; top: 18%; left: 59%; z-index: 1;
+                width: 51%; position: absolute; top: 10%; left: 45%;
             }
-          
+
+            .mano {
+                width: 20%; position: absolute; top: 25%; z-index: 1; right: 0%;
+            }
         }   
       
     </style>
@@ -349,17 +336,14 @@
             <!-- <h1 style="left: 31.3%; color: #46214f;">O</h1>
             <h1 style="left: 35.1%;">S</h1> -->
             <div class="cards">
-                <div class="card" data-page="2"><img src="./img/servicios/01 - 697x697.png" alt=""></div>
-                <div class="card" data-page="3"><img src="./img/servicios/02 697x697.png" alt=""></div>
-                <div class="card" data-page="4"><img src="./img/servicios/03 - 697x697.png" alt=""></div>
-                <div class="card" data-page="5"><img src="./img/servicios/04 - 697x697.png" alt=""></div>
-                <div class="card" data-page="6"><img src="./img/servicios/05 - 697x697.png" alt=""></div>
-                <div class="card" data-page="7"><img src="./img/servicios/06 - 697x697.png" alt=""></div>   
-                <div class="card" data-page="8"><img src="./img/servicios/07 - 697x697.png" alt=""></div>
-                <div class="card" data-page="9"><img src="./img/servicios/08 - 697x697.png" alt=""></div>
+                <div class="card" data-page="2"><img src="./img/servicios/01 540X540-.webp" alt="" loading="lazy" style=" "></div>
+                <div class="card" data-page="3"><img src="./img/servicios/02 540X540-.webp" alt="" loading="lazy"></div>
+                <div class="card" data-page="4"><img src="./img/servicios/03 540X540-.webp" alt="" loading="lazy"></div>
+                <div class="card" data-page="5"><img src="./img/servicios/04 540X540-.webp" alt="" loading="lazy"></div>
+                <div class="card" data-page="6"><img src="./img/servicios/05 540X540-.webp" alt="" loading="lazy"></div>
+                <div class="card" data-page="7"><img src="./img/servicios/06 540X540-.webp" alt="" loading="lazy"></div>   
             </div>
-            <img src="./img/servicios/SIMBOLO Y MANO (1).png" alt="" loading="lazy"
-                style="width: 8%; position: absolute; top: 25%; z-index: 1; right: 0%;">
+            <img class="mano" src="./img/servicios/SIMBOLO Y MANO (1).png" alt="" loading="lazy">
             <div class="row">
                 <p id="parrafo">Explora todo lo que <span style="font-family: romantica-free; font-size: 1.2em;">LOVELACE</span>
                     tiene para ofrecer.
@@ -375,7 +359,7 @@
 
                 <div class="item rojo">
                     <h1 id="num1">01.</h1>
-                    <h2 id="num2">LOGOS E IDENTIDAD <br>DE MARCA</h2>
+                    <h2 id="num2">LOGOS E IDENTIDAD DE MARCA</h2>
                     <p id="parrafo1">Abordamos todo lo que compete a la
                         representación gráfica de tu marca en la identidad y
                         simbología de cada empresa. Esto abarca el
@@ -422,8 +406,7 @@
                 </div>
                 <button class="iridiscent">VER PORTFOLIO</button>
                 <div class="item azul">
-                    <img src="./img/servicios/FONDO 905X1080.png" loading="lazy" alt="" id="imgserv1">
-                    <img src="./img/servicios/LOGO 509X624.png" alt="" loading="lazy" id="imgserv2">
+                    <img src="./img/servicios/IMAGEN 01.webp" loading="lazy" alt="" id="imgserv1">
                 </div>
             </div>
         </div>
@@ -432,9 +415,7 @@
             <div class="container" id="container1">
                 <div class="item rojo">
                     <h1 id="num1">02.</h1>
-                    <h2 id="num2">DISEÑO DE <br>
-                        APLICACIONES <br>
-                        Y SITIOS WEB</h2>
+                    <h2 id="num21">DISEÑO Y DESARROLLO WEB</h2>
                     <p id="parrafo1">En LOVELACE nos enfocamos en crear soluciones
                         digitales atractivas, funcionales y optimizadas
                         priorizando la experiencia de usuario, adaptado
@@ -478,8 +459,7 @@
                 </div>
                 <button class="iridiscent">VER PORTFOLIO</button>
                 <div class="item azul">
-                    <img src="./img/servicios/FONDO 905X1080.png" loading="lazy" alt="" id="imgserv1">
-                    <img src="./img/servicios/LOGO 509X624.png" alt="" loading="lazy" id="imgserv2">
+                    <img src="./img/servicios/IMAGEN 02.webp" loading="lazy" alt="" id="imgserv2">
                 </div>
             </div>
         </div>
