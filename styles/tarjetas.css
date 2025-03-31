@@ -60,21 +60,22 @@ body {
     border-radius: 2rem;
 }
 
+/*estilo para las tarjetas de servicios*/
 @media screen and (max-width: 768px){
     .card {
-        overflow: hidden; /* evita que la imagen se salga del contenedor */
+        overflow: hidden; 
     }
 
     .card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: none !important; /* desactiva transiciones en mobile para evitar desajustes visuales */
-        transform: none !important; /* evita transformaciones innecesarias */
+        transition: none !important; 
+        transform: none !important; 
     }
 
     .card:hover img {
-        transform: none !important; /* anula el hover en mobile para no ampliar la imagen */
+        transform: none !important; 
     }
 
     .cards {
@@ -85,7 +86,7 @@ body {
         gap: 10px;
         width: 100%;
         height: 80%;
-        margin-top: 40px; /* ajusta según tu necesidad */
+        margin-top: 40px; 
         margin-bottom: 50px;
       }
   }
